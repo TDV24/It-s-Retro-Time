@@ -26,10 +26,9 @@ public class TestingMovement : MonoBehaviour
         if (Input.GetKey("a")){
             rb.AddForce(transform.right*Time.deltaTime*-1000);
         }
-/*        if (Input.GetKey("s")){
+        if (Input.GetKey("s")){
             rb.AddForce(transform.forward*Time.deltaTime*-1000);
         }
-*/
         
     }
 }
