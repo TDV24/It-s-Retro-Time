@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestMovement : MonoBehaviour
+public class CarMovement : MonoBehaviour
 {
 
-
+    private GameManager gameManager;
 
     private float gravityAccelerration  = 10f;
     private bool isGrounded = false;
@@ -28,7 +28,7 @@ public class TestMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void ApplyAcceleration( ref float speed, float acceleration, float maxSpeed, float  minSpeed,  bool isDeceleration =  false){
@@ -43,7 +43,10 @@ public class TestMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        if(gameManager.isGameOver()){
+            this.enabled = false;
+        }   
         
         if(!isGrounded){
             float newY = transform.position.y - gravityAccelerration * Time.deltaTime;

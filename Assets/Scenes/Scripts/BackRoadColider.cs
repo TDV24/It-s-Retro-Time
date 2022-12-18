@@ -5,12 +5,6 @@ using UnityEngine;
 public class BackRoadColider : MonoBehaviour
 {
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
@@ -23,8 +17,17 @@ public class BackRoadColider : MonoBehaviour
         gameObject.transform.parent.name = "OldRoad";
         gameObject.transform.parent.transform.position += new Vector3(0,0,-200);
 
+        GameObject oldObstacles = GameObject.Find("OldObstacles");
+        if(oldObstacles!=null){
+            Destroy(oldObstacles);
+        }
+        GameObject newObstacles = GameObject.Find("NewObstacles");
+        newObstacles.transform.position+= new Vector3(0,0,-200);
+        newObstacles.name = "OldObstacles";
+
         GameObject car = GameObject.Find("Car");
         car.transform.position+= new Vector3(0,0,-200);
+
 
        
         
