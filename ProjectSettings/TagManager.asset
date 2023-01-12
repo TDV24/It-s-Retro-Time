@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Road
   - Obstacles
+<<<<<<< HEAD
   - Heart
+=======
+  - BackgroundMusic
+>>>>>>> 918b29f (Added BG music)
   layers:
   - Default
   - TransparentFX
