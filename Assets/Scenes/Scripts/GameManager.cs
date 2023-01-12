@@ -8,13 +8,28 @@ public class GameManager : MonoBehaviour
 
     private bool over = false;
 
-    public bool isGameOver(){
+
+    public bool isGameOver()
+    {
         return over;
-    } 
-    public void gameOver(){
+    }
+    public void gameOver()
+    {
         over = true;
     }
-    public void restartScene(){
+    public void restartScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void quitGame()
+    {
+        Debug.Log("Quit game!");
+        Application.Quit();
+    }
+
+    public void goToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
