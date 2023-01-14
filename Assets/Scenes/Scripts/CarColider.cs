@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class CarColider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
-        
-    }
-
-     void OnCollisionEnter(Collision collision){
-        if(collision.collider.tag == "Obstacles"){
+        if (collision.collider.tag == "Obstacles")
+        {
             FindObjectOfType<GameManager>().gameOver();
         }
-        
+
     }
 }
