@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Road
   - Obstacles
+  - Heart
   layers:
   - Default
   - TransparentFX

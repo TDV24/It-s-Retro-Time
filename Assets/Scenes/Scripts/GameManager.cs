@@ -7,15 +7,27 @@ public class GameManager : MonoBehaviour
 {
 
     private bool over = false;
+    private bool hasLastChance = false;
 
 
+    public bool getLastChanceState()
+    {
+        return hasLastChance;
+    }
+    public void getLastChance()
+    {
+        hasLastChance = true;
+    }
     public bool isGameOver()
     {
         return over;
     }
     public void gameOver()
     {
-        over = true;
+        if (!hasLastChance)
+            over = true;
+        else
+            hasLastChance = false;
     }
     public void restartScene()
     {

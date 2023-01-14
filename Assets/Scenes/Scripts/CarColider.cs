@@ -11,6 +11,10 @@ public class CarColider : MonoBehaviour
         {
             FindObjectOfType<GameManager>().gameOver();
         }
+        if (collision.collider.tag == "Heart")
+        {
+            FindObjectOfType<GameManager>().getLastChance();
+        }
 
     }
 }
