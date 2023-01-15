@@ -8,6 +8,8 @@ using System.Runtime.CompilerServices;
 public class MusicDropdown : MonoBehaviour
 {
     string[] audioFiles;
+    [SerializeField] AudioClip[] audioClips;
+    [SerializeField] MusicManager musicManager;
     void Awake()
     {
         TMP_Dropdown dropdown = transform.GetComponent<TMP_Dropdown>();
@@ -26,23 +28,27 @@ public class MusicDropdown : MonoBehaviour
 
     private void DropdownItemSelect(TMP_Dropdown dropdown)
     {
-        AudioClip clip;
         int index = dropdown.value;
         string newSongName = dropdown.options[index].text;
 
-        foreach (string path in audioFiles)
+        switch (newSongName)
         {
-            if (path.Contains(newSongName))
-            {
-                WWW requestedAudio = LoadAudio(Application.dataPath + "/Music/AudioFiles/test/");
-                clip = requestedAudio.GetAudioClip();
-                Debug.Log(clip.name);
-                MusicManager.ChangeBGM(clip);
-            }
+            case "Ocean_Drive":
+                musicManager.ChangeBGM(audioClips[0]);
+                break;
+            case "Party_Rock":
+                musicManager.ChangeBGM(audioClips[1]);
+                break;
+            case "Retro_Funk":
+                musicManager.ChangeBGM(audioClips[2]);
+                break;
+            case "RocknRoll":
+                musicManager.ChangeBGM(audioClips[3]);
+                break;
+            default:
+                musicManager.ChangeBGM(audioClips[0]);
+                break;
         }
-
-        //Debug.Log(newSongName);
-
     }
 
     private string[] getAudioFiles()
@@ -50,19 +56,7 @@ public class MusicDropdown : MonoBehaviour
         string path = Application.dataPath + "/Music/AudioFiles";
         string[] filePaths = System.IO.Directory.GetFiles(@path, "*.mp3");
 
-/*        foreach (string file in filePaths)
-        {
-            Debug.Log(file);
-        }*/
-
         return filePaths;
-    }
-
-    private WWW LoadAudio(string path)
-    {
-        WWW requestedAudio = new WWW(path);
-
-        return requestedAudio;
     }
 }
 

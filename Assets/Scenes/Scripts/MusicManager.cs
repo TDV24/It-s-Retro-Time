@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    static AudioSource BGM;
+    [SerializeField] private AudioSource BGM;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public static void ChangeBGM(AudioClip music)
+    public void ChangeBGM(AudioClip music)
     {
         BGM.Stop();
         BGM.clip = music;
