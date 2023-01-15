@@ -4,9 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Road
-  - Obstacles
   - Heart
+  - Obstacles
+  - Road
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX
