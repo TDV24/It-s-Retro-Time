@@ -9,13 +9,15 @@ public class MusicDropdown : MonoBehaviour
 {
     string[] audioFiles;
     [SerializeField] AudioClip[] audioClips;
-    [SerializeField] MusicManager musicManager;
+    MusicManager musicManager;
+
+    [SerializeField] TMP_Text label;
     void Awake()
     {
         TMP_Dropdown dropdown = transform.GetComponent<TMP_Dropdown>();
         audioFiles = getAudioFiles();
 
-        char[] delimiterChars = { '/', '\\'};
+        char[] delimiterChars = { '/', '\\' };
         dropdown.options.Clear();
 
         foreach (string song in audioFiles)
@@ -28,6 +30,7 @@ public class MusicDropdown : MonoBehaviour
 
     private void DropdownItemSelect(TMP_Dropdown dropdown)
     {
+        musicManager = FindObjectOfType<MusicManager>();
         int index = dropdown.value;
         string newSongName = dropdown.options[index].text;
 
@@ -49,6 +52,7 @@ public class MusicDropdown : MonoBehaviour
                 musicManager.ChangeBGM(audioClips[0]);
                 break;
         }
+        label.text = newSongName;
     }
 
     private string[] getAudioFiles()

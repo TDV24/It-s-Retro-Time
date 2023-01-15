@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
@@ -18,6 +17,7 @@ public class MusicManager : MonoBehaviour
         else
         {
             DontDestroyOnLoad(this.gameObject);
+            BGM = GetComponent<AudioSource>();
         }
     }
 
@@ -25,7 +25,6 @@ public class MusicManager : MonoBehaviour
     {
         BGM.Stop();
         BGM.clip = music;
-
         BGM.Play();
     }
 }
