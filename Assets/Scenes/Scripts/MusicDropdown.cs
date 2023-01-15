@@ -2,20 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MusicDropdown : MonoBehaviour
 {
     void Awake()
     {
-        /*        Transform child = transform.Find("Dropdown");
-                Debug.Log(child.name);*/
-        /*        foreach (Transform child in transform)
-        {
-                    Debug.Log(child.GetType());
-                }*/
-
-        Dropdown dropdown = transform.GetComponent<Dropdown>();
-        Debug.Log(dropdown.name);
+        TMP_Dropdown dropdown = transform.GetComponent<TMP_Dropdown>();
 
         string[] audioFiles = getAudioFiles();
         char[] delimiterChars = { '/', '\\' };
@@ -23,7 +16,7 @@ public class MusicDropdown : MonoBehaviour
 
         foreach (string song in audioFiles)
         {
-            dropdown.options.Add(new Dropdown.OptionData() { text = System.IO.Path.GetFileName(song) });
+            dropdown.options.Add(new TMP_Dropdown.OptionData() { text = System.IO.Path.GetFileName(song) });
         }
     }
 
