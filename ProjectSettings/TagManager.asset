@@ -4,13 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Road
-  - Obstacles
-<<<<<<< HEAD
   - Heart
-=======
+  - Obstacles
+  - Road
   - BackgroundMusic
->>>>>>> 918b29f (Added BG music)
   layers:
   - Default
   - TransparentFX
